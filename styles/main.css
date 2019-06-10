@@ -1,0 +1,46 @@
+
+/* just define some variables */
+body {
+  --pad: 0.3em;
+  --border-radius: 4px;
+}
+
+header {
+  padding: var(--pad);
+}
+
+header>button {
+  border-radius: var(--border-radius);
+}
+
+input[type=search] {
+  border-radius: var(--border-radius);
+
+main {
+  /* magic incantations for responsive grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+    minmax(240px, 1fr));
+
+  grid-gap: var(--pad);
+
+  padding: var(--pad);
+}
+
+.note {
+  padding: 1.5em;
+  border-radius: var(--border-radius);
+/*  margin: var(--pad); */
+  border-top-width: var(--border-radius);
+}
+
+/* begin note colors */
+
+/* TODO: design a color palette */
+
+.note-color-red {
+  background-color: rgb(247, 163, 163);
+  border-color: rgb(239, 105, 105);
+}
+
+/* end note colors */
