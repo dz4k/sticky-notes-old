@@ -40,7 +40,7 @@ main {
 
 .note-color-red {
   background-color: rgb(247, 163, 163);
-  border-color: rgb(239, 105, 105);
+  border-top-color: rgb(239, 105, 105);
 }
 
 /* end note colors */
