@@ -59,7 +59,7 @@ main {
   
   background-color: var(--note-bg-color);
   border-top-color: var(--note-rim-color);
-  box-shadow: 0 2px 3px var(--note-shadow-color);
+  color: var(--note-fg-color);
 }
 
 .note-color-red {
@@ -70,6 +70,7 @@ main {
 .note-color-black { 
   --note-bg-color: #66645d;
   --note-rim-color: #2b2a28;
+  --note-fg-color: white;
 }
 .note-color-pink { 
   --note-bg-color: #f26fc2;
