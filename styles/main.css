@@ -35,17 +35,11 @@ main {
 .note {
   padding: 1.5em;
   border-radius: var(--border-radius);
-/*  margin: var(--pad); */
+  margin: var(--pad);
   border-top-width: var(--border-radius);
 }
-
-/* begin note colors */
-
-/* TODO: design a color palette */
 
 .note-color-red {
   background-color: rgb(247, 163, 163);
   border-top-color: rgb(239, 105, 105);
 }
-
-/* end note colors */
