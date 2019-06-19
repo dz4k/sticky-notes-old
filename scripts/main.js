@@ -12,11 +12,16 @@ const notesView = notes => html`
 
 const testNotes =
   [ { color: "red", content: "Hasselback Potato" }
-  , { color: "red"
+  , { color: "pink"
     , content: `
-krkrkrkr
-dkkdkdkekekrkdkdk
- elellrlrlr
-    elel` } ]
+        krkrkrkr
+        dkkdkdkekekrkdkdk
+        elellrlrlr
+        elel` } 
+  , { color: "black", content: "Fly me to the moon..." }
+  , { color: "yellow", content: "Welcome to Trench." }
+  , { color: "green", content: "A monoid in the category of endofunctors" }
+  , { color: "blue", content: "yeet" }
+  ]
 
 render(notesView(testNotes), mainEl)
