@@ -1,0 +1,6 @@
+black 66645d 2b2a28
+pink f26fc2 a53b7f
+green bdd984 768c47
+red ff9184 b2564b
+blue 7bdff0 4396a3
+yellow f8ed74 aba23f
