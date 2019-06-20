@@ -1,0 +1,6 @@
+interface NoteRepository {
+  getNotes() : Promise<Note[]>;
+  saveNote(note: Note) : Promise<void>;
+  editNote(id: number, note: Note) : Promise<void>;
+}
+
