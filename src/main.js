@@ -1,6 +1,7 @@
-import {html, render} from 'https://unpkg.com/lit-html?module'
-
-const mainEl = document.querySelector("main")
+import {html, render} from 'https://unpkg.com/lit-html@1.0.0?module'
+import {until} from 'https://unpkg.com/lit-html@1.0.0/directives/until.js'
+import {repeat} from 'https://unpkg.com/lit-html@2.0.0/directives/repeat.js'
+import LocalStorageNoteRepo from './notes/local-storage.js'
 
 const noteView = note => html`
   <div class="note note-color-${note.color}">
@@ -8,9 +9,21 @@ const noteView = note => html`
   </div>`
 
 const notesView = notes => html`
-  ${notes.map(noteView)}`
+  ${until(notes.then(n => repeat(n, noteView)),
+    html`Loading...`)}`
 
-const testNotes =
+const mainView = notes => html`
+  <header>
+    <h1>sticky notes</h1>
+    <input id="search-query" type="text" name="query"
+      placeholder="search"></input>
+    <button id="create"><i>+</i> create</button>
+  </header>
+  <main>
+    ${notesView(notes)}
+  </main>`
+
+const testNotes = 
   [ { color: "red", content: "Hasselback Potato" }
   , { color: "pink"
     , content: `
@@ -24,4 +37,11 @@ const testNotes =
   , { color: "blue", content: "yeet" }
   ]
 
-render(notesView(testNotes), mainEl)
+window.localStorage.setItem('notes', JSON.stringify(testNotes))
+
+const noteRepo = LocalStorageNoteRepo()
+
+const notes = noteRepo.getNotes()
+
+console.log(notes)
+render(mainView(notes), document.body)
