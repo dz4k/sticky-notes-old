@@ -1,6 +1,6 @@
-import {html, render} from 'https://unpkg.com/lit-html@1.0.0?module'
+import {html, render} from 'https://unpkg.com/lit-html@1.0.0/lit-html.js'
 import {until} from 'https://unpkg.com/lit-html@1.0.0/directives/until.js'
-import {repeat} from 'https://unpkg.com/lit-html@2.0.0/directives/repeat.js'
+import {repeat} from 'https://unpkg.com/lit-html@1.0.0/directives/repeat.js'
 import LocalStorageNoteRepo from './notes/local-storage.js'
 
 const noteView = note => html`
@@ -9,8 +9,7 @@ const noteView = note => html`
   </div>`
 
 const notesView = notes => html`
-  ${until(notes.then(n => repeat(n, noteView)),
-    html`Loading...`)}`
+  ${until(notes.then(n => repeat(n, noteView)), 'Loading')}`
 
 const mainView = notes => html`
   <header>
@@ -43,5 +42,5 @@ const noteRepo = LocalStorageNoteRepo()
 
 const notes = noteRepo.getNotes()
 
-console.log(notes)
 render(mainView(notes), document.body)
+
