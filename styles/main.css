@@ -51,15 +51,22 @@ main {
   padding: var(--pad);
 }
 
-.note {
+.listitem.note {
   padding: 1.5em;
   border-radius: var(--border-radius);
+}
+
+.note {
   border-top-style: outset;
   border-top-width: var(--border-radius);
   
   background-color: var(--note-bg-color);
   border-top-color: var(--note-rim-color);
   color: var(--note-fg-color);
+}
+
+.note a {
+  color: var(--note-fg-color, var(--note-rim-color));
 }
 
 .note-color-red {
