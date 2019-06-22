@@ -17,7 +17,10 @@ const testNotes =
   , { color: "blue", content: "yeet" }
   ]
 
-window.localStorage.setItem('notes', JSON.stringify(testNotes))
+if (!window.localStorage.notes) {
+  window.localStorage.setItem('notes',
+    JSON.stringify(testNotes))
+}
 
 const noteRepo = LocalStorageNoteRepo()
 
