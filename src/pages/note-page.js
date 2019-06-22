@@ -16,15 +16,17 @@ export default (noteRepo, index) => {
     }
 
     return html`
-      <header>
-        <a @click="${saveChangesAndExit}">back</a>
-        <a>delete</a>
-        <a>color&#x2304;</a>
-      </header>
-      <main>
-        <textarea .value="${note.content}" 
-          @input="${updateNote}"></textarea>
-      </main>`
+      <div class="note page note-color-${note.color}">
+        <header>
+            <a href=# @click="${saveChangesAndExit}">back</a>
+            <a>delete</a>
+            <a>color</a>
+        </header>
+        <main>
+          <textarea .value="${note.content}" 
+            @input="${updateNote}"></textarea>
+        </main>
+      </div>`
       }
 
   return html`${until(note$.then(render), '')}`

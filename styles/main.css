@@ -11,6 +11,11 @@
   --hit-target: 2.5rem;
 }
 
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
 header {
   padding: var(--pad);
   display: grid;
@@ -65,8 +70,38 @@ main {
   color: var(--note-fg-color);
 }
 
-.note a {
+.note.page {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.note.page>header {
+  margin: 1rem;
+  
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: 1rem;
+}
+
+.note.page a {
   color: var(--note-fg-color, var(--note-rim-color));
+}
+
+.note.page textarea {
+  color: var(--note-fg-color);
+  margin: 1rem;
+  padding: none;
+
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
 }
 
 .note-color-red {
