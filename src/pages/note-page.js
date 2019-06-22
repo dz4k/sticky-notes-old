@@ -10,8 +10,13 @@ export default (noteRepo, id) => {
       noteRepo.editNote(note)
     }
 
-    const saveChangesAndExit = () => {
+    const saveChangesAndExit = (evt) => {
       noteRepo.editNote(note)
+      window.history.back()
+    }
+
+    const deleteNote = (evt) => {
+      noteRepo.deleteNote(note.id)
       window.history.back()
     }
 
@@ -19,7 +24,7 @@ export default (noteRepo, id) => {
       <div class="note page note-color-${note.color}">
         <header>
             <a href=# @click="${saveChangesAndExit}">back</a>
-            <a>delete</a>
+            <a @click="${deleteNote}">delete</a>
             <a>color</a>
         </header>
         <main>

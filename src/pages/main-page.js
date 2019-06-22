@@ -4,7 +4,7 @@ import {repeat} from 'https://unpkg.com/lit-html@1.0.0/directives/repeat.js'
 
 const createNote = (noteRepo, navNote) => noteRepo
   .saveNote({ color: 'yellow', content: '' })
-  .then(_ => navNote(note.id))
+  .then(note => navNote(note.id))
 
 const noteView = (note, onClick) => html`
   <div class="listitem note note-color-${note.color}"

@@ -46,6 +46,11 @@ export default function  LocalStorageNoteRepo() {
         note.id === newNote.id)
       notes[index] = newNote
       return Promise.resolve(saveNotes())
+    },
+
+    deleteNote(id) {
+      notes = notes.filter(note => note.id !== id)
+      return Promise.resolve(saveNotes())
     }
   }
 }
