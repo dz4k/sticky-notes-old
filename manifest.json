@@ -1,0 +1,9 @@
+{
+  "name": "sticky notes",
+  "short_name": "sticky notes",
+  "theme_color": "#ffd200",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/sticky-notes",
+  "start_url": "/sticky-notes"
+}
