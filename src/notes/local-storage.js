@@ -14,7 +14,7 @@ export default function  LocalStorageNoteRepo() {
   }
 
   const saveNotes = () => {
-    window.localStorage.notes = JSON.stringify(notes)
+    window.localStorage.setItem('notes', JSON.stringify(notes))
   }
 
   return {
