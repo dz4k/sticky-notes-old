@@ -38,7 +38,8 @@ window.onpopstate = (evt) => {
   else if (evt.state.note) navNote(evt.state.note)
 }
 
-if (window.location.hash !== '') {
+if (/\#[0-9]+/.test(window.location.hash)) {
   const noteIndex = window.location.hash.substr(1)
+  window.history.pushState(null, '', '')
   navNote(noteIndex)
 } else navMain()
