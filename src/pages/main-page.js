@@ -2,11 +2,9 @@ import {html, render} from 'https://unpkg.com/lit-html@1.0.0/lit-html.js'
 import {until} from 'https://unpkg.com/lit-html@1.0.0/directives/until.js'
 import {repeat} from 'https://unpkg.com/lit-html@1.0.0/directives/repeat.js'
 
-const createNote = (noteRepo, navNote) => noteRepo.getNotes()
-    .then(notes => notes.length)
-    .then(length => noteRepo.saveNote(
-      { color: 'yellow', content: '' }).then(_ => length))
-    .then(length => navNote(length))
+const createNote = (noteRepo, navNote) => noteRepo
+  .saveNote({ color: 'yellow', content: '' })
+  .then(_ => navNote(note.id))
 
 const noteView = (note, onClick) => html`
   <div class="listitem note note-color-${note.color}"
@@ -17,9 +15,8 @@ const noteView = (note, onClick) => html`
 const notesView = (noteRepo, navNote)=> html`
   ${until(
     noteRepo.getNotes().then(
-      n => repeat(n.slice().reverse(), (note, index) =>
-        noteView(note, () => navNote(index)
-      )
+      n => repeat(n, (note) =>
+        noteView(note, () => navNote(note.id))
     )
   ), '')}`
 

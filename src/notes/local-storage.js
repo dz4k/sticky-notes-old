@@ -17,19 +17,27 @@ export default function  LocalStorageNoteRepo() {
     window.localStorage.setItem('notes', JSON.stringify(notes))
   }
 
+  const loadNotes = () => {
+    if (!notes) notes = JSON.parse(window.localStorage.notes)
+    notes.forEach((note, index) => 
+      notes[index].id = notes[index].id || Math.random())
+  }
   return {
     getNotes() {
-      if (!notes) notes = JSON.parse(window.localStorage.notes)
-      notes.forEach((note, index) => 
-        notes[index].id = notes[index].id || Math.random())
+      loadNotes()
       return Promise.resolve(notes)
     },
 
+    getNoteById(id) {
+      loadNotes()
+      return Promise.resolve(notes.find(note => note.id === id))
+    },
     saveNote(note) {
       checkNote(note)
       note.id = Math.random()
-      notes.push(note)
-      return Promise.resolve(saveNotes())
+      notes.unshift(note)
+      saveNotes()
+      return Promise.resolve(note)
     },
 
     editNote(newNote) {
