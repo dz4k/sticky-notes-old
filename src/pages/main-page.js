@@ -21,8 +21,6 @@ const notesView = (noteRepo, navNote)=> html`
 export default (noteRepo, navNote) => html`
   <header>
     <h1>sticky notes</h1>
-    <input id="search-query" type="text" name="query"
-      placeholder="search"></input>
     <button id="create"
       @click=${() => createNote(noteRepo, navNote)}>
 

@@ -8,7 +8,6 @@
 :root {
   --pad: 0.3rem;
   --border-radius: 4px;
-  --hit-target: 2.5rem;
 }
 
 html, body {
@@ -19,24 +18,27 @@ html, body {
 header {
   padding: var(--pad);
   display: grid;
-  grid-template-columns: 1fr 5rem;
+  grid-template-columns: auto 1fr auto;
   grid-template-areas:
-    'title         title'
-    'search-query  search-button';
+    'title . create-button';
   grid-gap: 1rem;
 }
 
 header>h1 {
   grid-area: title;
+  border-bottom: 2px dotted;
 }
 
 header>button {
-  grid-area: search-button;
+  grid-area: create-button;
   border-radius: var(--border-radius);
   border-style: none;
-  height: var(--hit-target);
+  height: 2.5rem;
+  padding: 0 1rem;
+  margin: auto 0;
 }
 
+/*
 header>input#search-query {
   grid-area: search-query;
   border-style: none none dotted none;
@@ -44,6 +46,7 @@ header>input#search-query {
   height: var(--hit-target);
   box-sizing: border-box;
 }
+*/
 
 main {
   /* magic incantations for responsive grid */
