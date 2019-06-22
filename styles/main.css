@@ -104,6 +104,41 @@ main {
   outline: none;
 }
 
+.color-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.color-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+
+  padding: 1rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+  grid-template-columns: repeat(3, 2rem);
+  grid-gap: 1rem;
+}
+
+
+.color-dropdown:hover {
+  text-decoration: underline;
+}
+
+.color-dropdown:hover .color-dropdown-content {
+  display: grid;
+  right: 0;
+}
+
+.color-dropdown-content a {
+  display: block;
+  border-radius: 50%;
+  padding-top: 100%;
+  background-color: var(--note-bg-color);
+}
+
 .note-color-red {
   --note-bg-color: rgb(247, 163, 163);
   --note-rim-color: rgb(239, 105, 105);
