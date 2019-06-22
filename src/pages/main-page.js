@@ -17,7 +17,7 @@ const noteView = (note, onClick) => html`
 const notesView = (noteRepo, navNote)=> html`
   ${until(
     noteRepo.getNotes().then(
-      n => repeat(n, (note, index) =>
+      n => repeat(n.slice().reverse(), (note, index) =>
         noteView(note, () => navNote(index)
       )
     )
