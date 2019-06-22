@@ -8,9 +8,7 @@ const createNote = (noteRepo, navNote) => noteRepo
 
 const noteView = (note, onClick) => html`
   <div class="listitem note note-color-${note.color}"
-       @click=${onClick}>
-    ${note.content}
-  </div>`
+       @click=${onClick}>${note.content}</div>`
 
 const notesView = (noteRepo, navNote)=> html`
   ${until(

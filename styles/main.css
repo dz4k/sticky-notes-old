@@ -59,6 +59,8 @@ main {
 .listitem.note {
   padding: 1.5em;
   border-radius: var(--border-radius);
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .note {
@@ -68,6 +70,7 @@ main {
   background-color: var(--note-bg-color);
   border-top-color: var(--note-rim-color);
   color: var(--note-fg-color);
+
 }
 
 .note.page {
