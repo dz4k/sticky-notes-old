@@ -10,9 +10,12 @@ const noteView = (note, onClick) => html`
 
 const notesView = (notes, navNote)=> html`
   ${until(
-     notes.then(n => repeat(n, (note, index) =>
-      noteView(note, () => navNote(index)
-    ))), '')}`
+    notes.then(
+      n => repeat(n, (note, index) =>
+        noteView(note, () => navNote(index)
+      )
+    )
+  ), '')}`
 
 export default (notes, navNote) => html`
   <header>

@@ -2,7 +2,8 @@ import {html, render} from 'https://unpkg.com/lit-html@1.0.0/lit-html.js'
 import {until} from 'https://unpkg.com/lit-html@1.0.0/directives/until.js'
 
 export default (noteRepo, index) => {
-  const note$ = noteRepo.getNotes().then(notes => notes[i])
+  const note$ = noteRepo.getNotes()
+    .then(notes => notes[index])
   const render = note => {
 
     const updateNote = (evt) => {
@@ -26,5 +27,5 @@ export default (noteRepo, index) => {
       </main>`
       }
 
-  return html`${until(notes$.then(render), '')}`
+  return html`${until(note$.then(render), '')}`
 }

@@ -23,8 +23,8 @@ const noteRepo = LocalStorageNoteRepo()
 
 
 const navNote = index => {
+  render(noteView(noteRepo, index), document.body)
   window.history.pushState({note: index}, '', String(index))
-  render(noteView(noteRepo, index))
 }
 
 const notes = noteRepo.getNotes()
