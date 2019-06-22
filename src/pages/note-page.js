@@ -8,11 +8,11 @@ export default (noteRepo, index) => {
 
     const updateNote = (evt) => {
       note.content = evt.srcElement.value
-      noteRepo.editNote(index.note)
+      noteRepo.editNote(note)
     }
 
     const saveChangesAndExit = () => {
-      noteRepo.editNote(index, note)
+      noteRepo.editNote(note)
       window.history.back()
     }
 

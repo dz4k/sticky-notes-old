@@ -20,19 +20,23 @@ export default function  LocalStorageNoteRepo() {
   return {
     getNotes() {
       if (!notes) notes = JSON.parse(window.localStorage.notes)
+      notes.forEach((note, index) => 
+        notes[index].id = notes[index].id || Math.random())
       return Promise.resolve(notes)
     },
 
     saveNote(note) {
       checkNote(note)
+      note.id = Math.random()
       notes.push(note)
       return Promise.resolve(saveNotes())
     },
 
-    editNote(id, note) {
-      if (id >= notes.length) throw 'Tried to edit nonexistent note.'
-      checkNote(note)
-      notes[id] = note
+    editNote(newNote) {
+      checkNote(newNote)
+      const index = notes.findIndex(note => 
+        note.id === newNote.id)
+      notes[index] = newNote
       return Promise.resolve(saveNotes())
     }
   }
