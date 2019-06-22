@@ -24,10 +24,21 @@ const noteRepo = LocalStorageNoteRepo()
 
 const navNote = index => {
   render(noteView(noteRepo, index), document.body)
-  window.history.pushState({note: index}, '', String(index))
+  window.history.pushState({note: index}, '', `#${index}`)
 }
 
 const notes = noteRepo.getNotes()
 
-render(mainView(notes, navNote), document.body)
+const navMain = () => {
+  render(mainView(notes, navNote), document.body)
+}
 
+window.onpopstate = (evt) => {
+  if (!evt.state) navMain()
+  else if (evt.state.note) navNote(evt.state.note)
+}
+
+if (window.location.hash !== '') {
+  const noteIndex = window.location.hash.substr(1)
+  navNote(noteIndex)
+} else navMain()
