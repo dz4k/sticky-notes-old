@@ -30,10 +30,8 @@ const navNote = index => {
   window.history.pushState({note: index}, '', `#${index}`)
 }
 
-const notes = noteRepo.getNotes()
-
 const navMain = () => {
-  render(mainView(notes, navNote), document.body)
+  render(mainView(noteRepo, navNote), document.body)
 }
 
 window.onpopstate = (evt) => {
