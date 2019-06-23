@@ -44,6 +44,33 @@ if ("serviceWorker" in navigator) {
   }
 }
 
+  let beforeinstall
+
+  const installBtn = document.querySelector('#install')
+
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault()
+    beforeinstall = e
+    installBtn.classList.remove('hide')
+  }
+
+  installBtn.addEventListener('click', (e) => {
+  // hide our user interface that shows our A2HS button
+  installBtn.style.display = 'none';
+  // Show the prompt
+  beforeinstall.prompt();
+  // Wait for the user to respond to the prompt
+  beforeinstall.userChoice
+    .then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the A2HS prompt');
+      } else {8
+        console.log('User dismissed the A2HS prompt');
+      }
+      deferredPrompt = null;
+    });
+});
+
   </script>
   <title>sticky notes</title>
 </head>

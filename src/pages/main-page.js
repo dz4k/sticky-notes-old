@@ -20,6 +20,7 @@ const notesView = (noteRepo, navNote)=> html`
 
 export default (noteRepo, navNote) => html`
   <header>
+    <a id=install class=hide>add to homescreen</a>
     <h1>sticky notes</h1>
     <button id="create"
       @click=${() => createNote(noteRepo, navNote)}>
